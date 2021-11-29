@@ -1,0 +1,4 @@
+Konten formula :
+- Menggunakan windows function
+- Menggunakan agregation function
+- Menggunakan Date function
