@@ -1,4 +1,17 @@
 Konten formula :
-- Menggunakan windows function
+- Menggunakan windows function :
+    - row number
+    - dense rank
+    - rank
+    - max
+    - min
+    - sum
+    - avg
+    - lag
 - Menggunakan agregation function
+    - string_agg
+    - count(distinct)
 - Menggunakan Date function
+    - extract
+    - format_date
+    - format_timestamp
