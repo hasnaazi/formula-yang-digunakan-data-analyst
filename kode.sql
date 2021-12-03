@@ -1,0 +1,25 @@
+#Menggunakan Windows Fuction
+
+#Penggunaan rank, dense rank, row number
+WITH raw_data AS
+  (SELECT 
+  ORDERNUMBER, QUANTITYORDERED, SALES, ORDERDATE, PRODUCTLINE
+  FROM `my-project-1-data-analyst.satu.sale`)
+
+SELECT ORDERNUMBER, QUANTITYORDERED,
+  rank() OVER (ORDER BY QUANTITYORDERED DESC) AS rank,
+  dense_rank() OVER (ORDER BY QUANTITYORDERED DESC) AS dense_rank,
+  row_number() OVER (ORDER BY QUANTITYORDERED DESC) AS row_number
+  
+  from raw_data ORDER BY QUANTITYORDERED DESC
+  
+#Penggunaan MAX, MIN, SUM, AVG
+ 
+ SELECT ORDERNUMBER, QUANTITYORDERED, SALES, ORDERDATE, PRODUCTLINE,
+  MAX(SALES) OVER (PARTITION BY PRODUCTLINE ) AS max_sales,
+  MIN(SALES ) OVER (PARTITION BY PRODUCTLINE) AS min_sales,
+  SUM(SALES) OVER (PARTITION BY PRODUCTLINE) AS sum_sales,
+  AVG(SALES) OVER (PARTITION BY PRODUCTLINE) AS avg_sales
+  FROM `my-project-1-data-analyst.satu.sale`
+  
+  
